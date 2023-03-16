@@ -2,9 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { Error404 } from './Pages/Error404';
-import { AboutUs } from './Pages/AboutUs';
-import { PostsPage } from './Pages/PostsPage';
+import { Error404 } from './pages/Error404';
+import { AboutUs } from './pages/AboutUs';
+import { PostsPage } from './pages/PostsPage';
 
 function App() {
   return (
