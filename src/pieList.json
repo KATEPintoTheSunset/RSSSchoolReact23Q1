@@ -21,7 +21,7 @@
         "name": "Chicago-style pizza",
         "price": "25$",
         "type": "Savory",
-        "info": "Chicago-style pizza is pizza prepared according to several styles developed in Chicago, widely referred to as deep-dish pizza due to its cooking style. The pan in which it is baked gives the pizza its characteristically high edge which provides ample space for large amounts of cheese and a chunky tomato sauce. Chicago-style pizza may be prepared in deep-dish style and as a stuffed pizza."
+        "info": "Chicago-style pizza is pizza prepared according to several styles developed in Chicago, widely referred to as deep-dish pizza due to its cooking style. The pan in which it is baked gives the pizza its characteristically high edge which provides ample space for large amounts of cheese and a chunky tomato sauce."
     },
     {
         "id": 4,
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Chicken_Pie.JPG",
-        "name": "Chicken and mushroom pie",
+        "name": "Chicken pie",
         "price": "24$",
         "type": "Savory",
         "info": "Chicken and mushroom pie is a common British pie, ranked as one of the most popular types of savoury pie in Great Britain and often served in fish and chips restaurants. It is also very popular in South Africa."
