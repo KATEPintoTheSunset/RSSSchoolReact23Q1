@@ -19,7 +19,7 @@ export function MyHeader(props:any) {
     }
 
     return (
-    <header className={classes.header}>
+    <header role="header" className={classes.header}>
         <div  className={classes.logo_container}>
             <img className={classes.img} src='iStar_Design_Thanksgiving_LineIcons_Live-47-512.webp'></img>
             <h1 className={classes.logo_top}>BIGPIE</h1>
