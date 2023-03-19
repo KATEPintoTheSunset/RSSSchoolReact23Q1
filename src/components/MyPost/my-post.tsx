@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './MyPost.module.css'
+import classes from './my-post.module.css'
 
 export function MyPost(props:any) {
     return (

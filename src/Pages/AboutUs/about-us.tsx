@@ -1,5 +1,5 @@
 import React from 'react';
-import { MyHeader } from '../../components/MyHeader/MyHeader'
+import { MyHeader } from '../../components/MyHeader/my-header'
 
 export function AboutUs() {
   return (

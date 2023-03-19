@@ -1,7 +1,7 @@
 import React from 'react'
-import { MyPost } from '../../components/MyPost/MyPost'
-import { MyHeader } from '../../components/MyHeader/MyHeader'
-import classes from './PostsPage.module.css'
+import { MyPost } from '../../components/MyPost/my-post'
+import { MyHeader } from '../../components/MyHeader/my-header'
+import classes from './post-page.module.css'
 import pieList from "../../pieList.json"
 
 export function PostsPage() {

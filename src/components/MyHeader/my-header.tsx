@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
-import classes from './MyHeader.module.css'
-import { MyInput } from '../../components/MyInput/MyInput'
+import classes from './my-header.module.css'
+import { MyInput } from '../MyInput/my-input'
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export function MyHeader(props:any) {
