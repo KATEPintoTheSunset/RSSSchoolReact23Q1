@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './my-post.module.css'
 
-export function MyPost(props:any) {
+export function MyPost(props:{name: string, img:string, price:string, info:string, type:string, key:number}) {
     return (
         <div role="post" className={classes.div} {...props}>
             <img className={classes.img} src={props.img} alt={props.name}></img>
