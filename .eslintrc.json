@@ -9,7 +9,6 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier",
         "plugin:react-hooks/recommended",
         "plugin:prettier/recommended"
     ],
@@ -27,8 +26,8 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "prettier", 
-        "react-hooks"
+        "react-hooks",
+        "prettier"
     ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
@@ -37,7 +36,6 @@
         "react/prop-types": "off",
         "react/display-name": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-        "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/ban-ts-comment": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
@@ -46,6 +44,7 @@
         "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/no-var-reqiures": "off",
         "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "prettier/prettier": "error"
     }
 }

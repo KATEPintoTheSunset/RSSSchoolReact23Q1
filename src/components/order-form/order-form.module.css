@@ -1,0 +1,34 @@
+.inputs_container{
+    position: sticky;
+    top: 3vmin;
+    width: 20vmin;
+    background-color: #ffeadc;
+    margin-top: 1vmin;
+    height: fit-content;
+    padding: 3vmin;
+    border-radius: 1vmin;
+}
+
+.input_container{
+    margin: 1.5vmin 0;
+    font-size: 2vmin;
+}
+
+.input{
+    padding-left: 1vmin;
+    border: none;
+    width: 20vmin;
+    border-radius: 1vmin;
+    font-family: system-ui;
+    font-weight: 100;
+    font-size: 2vmin;
+}
+
+h3, p{
+    margin: 0;
+    margin-bottom: 0.5vmin;
+}
+
+.error{
+    color: crimson;
+}

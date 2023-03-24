@@ -1,14 +1,20 @@
-import React from 'react'
-import { MyPost } from '../../components/MyPost/my-post'
-import { MyHeader } from '../../components/MyHeader/my-header'
-import classes from './order-page.module.css'
+import React, { useState } from 'react';
+import { MyHeader } from '../../components/MyHeader/my-header';
+import classes from './order-page.module.css';
+import { OrderForm } from '../../components/order-form/order-form';
+import { IOrder } from 'interfaces/order';
+import { OrderList } from '../../components/order-list/order-list';
+import { getLocalOrders } from '../../utils/order';
 
 export function OrderPage() {
+  const [info, setNewInfo] = useState(false);
+  const localOrders: IOrder[] = getLocalOrders();
   return (
     <div>
       <MyHeader active={'orders'}></MyHeader>
-      <div className={classes.posts_container}>
-        {/* {pieList.map(pie => <MyPost name={pie.name} img={pie.img} price={pie.price} info={pie.info} type={pie.type} key={pie.id}/>)} */}
+      <div className={classes.container} id="order">
+        <OrderForm newInfo={setNewInfo} info={info} />
+        <OrderList localOrders={localOrders} />
       </div>
     </div>
   );
