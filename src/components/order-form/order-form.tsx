@@ -13,7 +13,6 @@ export function OrderForm(props: {
   const [errors, setErrors] = useState({
     isNameCorrect: true,
     isDateCorrect: true,
-    isPieCorrect: true,
     isDeliveryTypeCorrect: true,
   });
 
@@ -69,14 +68,8 @@ export function OrderForm(props: {
     ) {
       errors.push('Invalid name');
     }
-    if (img === undefined || img === null) {
-      errors.push('Invalid img');
-    }
     if (date === undefined || date === '') {
       errors.push('Invalid date');
-    }
-    if (pie === undefined) {
-      errors.push('Invalid pie');
     }
     if (deliveryType === undefined) {
       errors.push('Invalid delivery type');
@@ -86,7 +79,6 @@ export function OrderForm(props: {
       setErrors({
         isNameCorrect: true,
         isDateCorrect: true,
-        isPieCorrect: true,
         isDeliveryTypeCorrect: true,
       });
       const totalObject: IOrder = {
@@ -130,12 +122,6 @@ export function OrderForm(props: {
     }
   };
 
-  const getInputPie = () => {
-    if (!errors.isPieCorrect) {
-      return <p className={classes.error}>Invalid pie</p>;
-    }
-  };
-
   const getInputDeliveryType = () => {
     if (!errors.isDeliveryTypeCorrect) {
       return <p className={classes.error}>Invalid delivery type</p>;
@@ -156,7 +142,14 @@ export function OrderForm(props: {
       </div>
       <div className={classes.input_container}>
         <h3>Date of delivery</h3>
-        <input ref={inputData} className={classes.input} type="date" min={dataMin} max={dataMax} />
+        <input
+          data-testid="date-input"
+          ref={inputData}
+          className={classes.input}
+          type="date"
+          min={dataMin}
+          max={dataMax}
+        />
         {getInputDate()}
       </div>
       <div className={classes.input_container}>
@@ -168,7 +161,6 @@ export function OrderForm(props: {
             </option>
           ))}
         </select>
-        {getInputPie()}
       </div>
       <div className={classes.input_container}>
         <h3>Delivery type</h3>

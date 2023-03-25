@@ -29,5 +29,25 @@ describe('App', () => {
     expect(
       screen.queryByText('Hello! Sorry, there is nothing special here yet, but it may appear later')
     ).toBeNull();
+
+    expect(screen.getByText('Posts Page')).toHaveClass('active');
+    fireEvent.click(screen.getByText('Orders'));
+    expect(await screen.findByText('Type of pie')).toBeInTheDocument();
+
+    expect(screen.queryByText('Customer name:')).toBeNull();
+
+    fireEvent.change(screen.getByPlaceholderText(/Name/i), { target: { value: 'lowercasetext' } });
+    fireEvent.click(screen.getByText('Order', { selector: 'input' }));
+    expect(await screen.findByText('Invalid name')).toBeInTheDocument();
+    expect(await screen.findByText('Invalid date')).toBeInTheDocument();
+    expect(await screen.findByText('Invalid delivery type')).toBeInTheDocument();
+
+    fireEvent.change(screen.getByPlaceholderText(/Name/i), { target: { value: 'Tony' } });
+    fireEvent.mouseDown(screen.getByTestId('date-input'));
+    fireEvent.change(screen.getByTestId('date-input'), { target: { value: '2023-04-24' } });
+    fireEvent.click(screen.getAllByRole('radio')[0] as HTMLAnchorElement);
+    fireEvent.click(screen.getByText('Order', { selector: 'input' }));
+    expect(screen.queryByText('Customer name:')).toBeInTheDocument();
+    expect(screen.queryByText('Order for a date:')).toBeInTheDocument();
   });
 });
