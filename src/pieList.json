@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_pie.jpg/1280px-Apple_pie.jpg",
+        "name": "Apple pie",
+        "price": "15$",
+        "type": "Sweet",
+        "info": "An apple pie is a fruit pie in which the principal filling ingredient is apples. Apple pie is often served with whipped cream, ice cream, custard or cheddar cheese. It is generally double-crusted, with pastry both above and below the filling; the upper crust may be solid or latticed."
+    },
+    {
+        "id": 2,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/MeatPie.JPG/1280px-MeatPie.JPG",
+        "name": "Meat pie",
+        "price": "20$",
+        "type": "Savory",
+        "info": "A meat pie is a pie with a filling of meat and often with other savory ingredients. They are found in cuisines worldwide. Meat pies are usually baked, fried, or deep fried to brown them and develop the flavour through the Maillard reaction. Many varieties have a flaky crust."
+    },
+    {
+        "id": 3,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Chicago-Style_Stuffed_Pizza.jpg/1280px-Chicago-Style_Stuffed_Pizza.jpg",
+        "name": "Chicago-style pizza",
+        "price": "25$",
+        "type": "Savory",
+        "info": "Chicago-style pizza is pizza prepared according to several styles developed in Chicago, widely referred to as deep-dish pizza due to its cooking style. The pan in which it is baked gives the pizza its characteristically high edge which provides ample space for large amounts of cheese and a chunky tomato sauce."
+    },
+    {
+        "id": 4,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Cherry_pie_with_lattice%2C_February_2008.jpg/1280px-Cherry_pie_with_lattice%2C_February_2008.jpg",
+        "name": "Cherry pie",
+        "price": "17$",
+        "type": "Sweet",
+        "info": "Cherry pie is a pie baked with a cherry filling. Traditionally, cherry pie is made with sour cherries rather than sweet cherries. Morello cherries are one of the most common kinds of cherry used, but other varieties such as the black cherry may also be used."
+    },
+    {
+        "id": 5,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Lemon_tart_-_star5112.jpg/1280px-Lemon_tart_-_star5112.jpg",
+        "name": "Lemon tart",
+        "price": "19$",
+        "type": "Sweet",
+        "info": "A lemon tart is a dessert dish, a variety of tart. It has a pastry shell with a lemon flavored filling."
+    },
+    {
+        "id": 6,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Chicken_Pie.JPG",
+        "name": "Chicken pie",
+        "price": "24$",
+        "type": "Savory",
+        "info": "Chicken and mushroom pie is a common British pie, ranked as one of the most popular types of savoury pie in Great Britain and often served in fish and chips restaurants. It is also very popular in South Africa."
+    },
+    {
+        "id": 7,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Banoffeepie.jpg",
+        "name": "Banoffee pie",
+        "price": "23$",
+        "type": "Sweet",
+        "info": "Banoffee pie is a British dessert pie made from bananas, whipped cream and a thick caramel sauce, combined either on a buttery biscuit base or one made from crumbled biscuits and butter. Some versions of the recipe also include chocolate, coffee or both."
+    },
+    {
+        "id": 8,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Scotch_pie.jpg/1280px-Scotch_pie.jpg",
+        "name": "Scotch pie",
+        "price": "22$",
+        "type": "Savory",
+        "info": "A Scotch pie or mutton pie is a small, double-crust meat pie, traditionally filled with minced mutton but now generally beef, sometimes lamb. It may also be known as a shell pie or mince pie to differentiate it from other varieties of savoury pie, such as the steak pie, steak and kidney pie, steak-and-tattie pie, and so forth."
+    },
+    {
+        "id": 9,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Saskatoonberry_pie.jpg/1280px-Saskatoonberry_pie.jpg",
+        "name": "Saskatoon berry pie",
+        "price": "14$",
+        "type": "Sweet",
+        "info": "Saskatoon berry pie is a type of pie with a saskatoon berry filling. The pie originated in the Prairies region of Canada and is often served with vanilla ice cream as a dessert. The primary ingredients of saskatoon berry pie include saskatoon berries, pie crust, sugar, cornstarch or flour, butter and lemon zest/juice. The pie is sometimes made with blueberries as a saskatoon berry substitute."
+    },
+    {
+        "id": 10,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Walnut_Tart_-_Aviv_%284713854055%29.jpg/1280px-Walnut_Tart_-_Aviv_%284713854055%29.jpg",
+        "name": "Walnut pie",
+        "price": "12$",
+        "type": "Sweet",
+        "info": "Walnut pie is a pie prepared with walnuts as a primary ingredient. Whole or chopped walnuts may be used, or both, and toasted walnuts may be used. It may be prepared as a cream pie, and may include maple syrup, molasses, and cinnamon as ingredients. It may be prepared with a sweet filling base prepared with corn syrup, sugar, and eggs, similar to pecan pie filling. Chocolate and honey may also be used. Walnut pie may be prepared using fruits such as raisins, figs, plums, and cranberries, among others. Walnut pie may be served at room temperature or warmed. It may be topped with whipped cream."
+    },
+    {
+        "id": 11,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Peanut_pie_close-up.jpg/1280px-Peanut_pie_close-up.jpg",
+        "name": "Peanut pie",
+        "price": "10$",
+        "type": "Sweet",
+        "info": "Peanut pie, sometimes called the 'poor man's pecan pie', is a pie that is part of the cuisine of the Southern United States, in the Tidewater region, where peanuts are a common crop. It can be served as a kosher dessert. In North Carolina it was a standard dish to serve at family reunions or church events."
+    },
+    {
+        "id": 12,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Quiche.jpg/1280px-Quiche.jpg",
+        "name": "Quiche pie",
+        "price": "21$",
+        "type": "Savory",
+        "info": "Quiche is a French tart consisting of pastry crust filled with savoury custard and pieces of cheese, meat, seafood or vegetables. A well-known variant is quiche Lorraine, which includes lardons or bacon. Quiche may be served hot, warm or cold."
+    },
+    {
+        "id": 13,
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/ChickenpotpiesopenFeb09.jpg/1280px-ChickenpotpiesopenFeb09.jpg",
+        "name": "Curry pie",
+        "price": "24$",
+        "type": "Savory",
+        "info": "Curry pie is a variety of savoury pie served in the United Kingdom. It is made from curry gravy, usually containing an assortment of fillings and enclosed in a pastry shell. Curry pies are a popular pub meal in the United Kingdom, often accompanied by chips."
+    }
+]
