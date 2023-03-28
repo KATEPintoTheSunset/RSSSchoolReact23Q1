@@ -3,13 +3,16 @@ import classes from './order-form.module.css';
 import pieList from '../../pieList.json';
 import { IOrder } from 'interfaces/order';
 import { getLocalOrders, writeOrders } from '../../utils/order';
+import formNameValidate from '../../utils/validation/form-fields/name';
+import formIMGValidate from '../../utils/validation/form-fields/img';
+import formDateValidate from '../../utils/validation/form-fields/date';
+import formDeliveryTypeValidate from '../../utils/validation/form-fields/delivery-type';
 
 export function OrderForm(props: {
   newInfo: React.Dispatch<React.SetStateAction<boolean>>;
   info: boolean;
 }) {
   const [info, setNewInfo] = useState(false);
-
   const [errors, setErrors] = useState({
     isNameCorrect: true,
     isDateCorrect: true,
@@ -34,48 +37,37 @@ export function OrderForm(props: {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     const localOrders: IOrder[] = getLocalOrders();
-    const errors: string[] = [];
 
     const name = inputName.current?.value;
-    const isNameRigthValue =
-      name !== undefined &&
-      name.trim().length > 0 &&
-      /^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u.test(name) &&
-      name.slice(0, 1) === name.slice(0, 1).toUpperCase();
+    const isNameRightValue = formNameValidate(name);
 
     const img = inputIMG.current?.files;
-    const isIMGRigthValue = img !== undefined && img !== null && img?.length !== 0;
+    const isIMGRightValue = formIMGValidate(img);
 
     const date = inputData.current?.value;
-    const isDateRigthValue = date !== undefined && date !== '';
+    const isDateRightValue = formDateValidate(date);
 
     const pie = inputPieType.current?.value;
-    const isPieRigthValue = pie !== undefined;
 
     const deliveryType = inputDeliveryType.current?.checked
       ? inputDeliveryType.current?.value
       : inputPickupType.current?.checked
-      ? inputDeliveryType.current?.value
+      ? inputPickupType.current?.value
       : undefined;
-    const isDeliveryTypeRigthValue = deliveryType !== undefined;
+    const isDeliveryTypeRightValue = formDeliveryTypeValidate(deliveryType);
 
     const bd = inputBD.current?.checked ? inputBD.current?.value : 'no';
 
     if (
-      name === undefined ||
-      !/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u.test(name) ||
-      name.slice(0, 1) !== name.slice(0, 1).toUpperCase()
+      name &&
+      isNameRightValue &&
+      img &&
+      date &&
+      isDateRightValue &&
+      pie &&
+      deliveryType &&
+      isDeliveryTypeRightValue
     ) {
-      errors.push('Invalid name');
-    }
-    if (date === undefined || date === '') {
-      errors.push('Invalid date');
-    }
-    if (deliveryType === undefined) {
-      errors.push('Invalid delivery type');
-    }
-
-    if (isNameRigthValue && isDateRigthValue && isPieRigthValue && isDeliveryTypeRigthValue) {
       setErrors({
         isNameCorrect: true,
         isDateCorrect: true,
@@ -85,10 +77,10 @@ export function OrderForm(props: {
         name,
         date,
         pie,
-        deliverytype: deliveryType,
+        deliveryType,
         bd,
         id: localOrders.length,
-        img: isIMGRigthValue ? URL.createObjectURL(img[0]) : '64572.png',
+        img: isIMGRightValue ? URL.createObjectURL(img[0]) : '64572.png',
       };
 
       localOrders.push(totalObject);
@@ -98,14 +90,12 @@ export function OrderForm(props: {
       props.newInfo(!props.info);
     } else {
       const errorsState = {
-        isNameCorrect: isNameRigthValue,
-        isDateCorrect: isDateRigthValue,
-        isPieCorrect: isPieRigthValue,
-        isDeliveryTypeCorrect: isDeliveryTypeRigthValue,
+        isNameCorrect: isNameRightValue,
+        isDateCorrect: isDateRightValue,
+        isDeliveryTypeCorrect: isDeliveryTypeRightValue,
       };
       setErrors(errorsState);
       setNewInfo(!info);
-      alert(errors.join('\n '));
     }
     event.preventDefault();
   }
