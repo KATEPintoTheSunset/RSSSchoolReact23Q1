@@ -1,6 +1,6 @@
 .posts_container{
     display: grid;
-    grid-template-rows: 60vmin;
+    /* grid-template-rows: 45vmin; */
     grid-template-columns: repeat(auto-fill, 40vmin);
     grid-gap: 5vmin;
     justify-content: center;

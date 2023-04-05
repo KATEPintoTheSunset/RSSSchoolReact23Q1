@@ -7,11 +7,12 @@ import { OrderList } from '../../components/order-list/order-list';
 import { getLocalOrders } from '../../utils/order';
 
 export function OrderPage() {
+  const [search, setSearch] = useState('');
   const [info, setNewInfo] = useState(false);
   const localOrders: IOrder[] = getLocalOrders();
   return (
     <div>
-      <MyHeader active={'orders'}></MyHeader>
+      <MyHeader active={'orders'} setSearch={setSearch}></MyHeader>
       <div className={classes.container} id="order">
         <OrderForm newInfo={setNewInfo} info={info} />
         <OrderList localOrders={localOrders} />

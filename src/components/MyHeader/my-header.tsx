@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './my-header.module.css';
 import { MyInput } from '../MyInput/my-input';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-export function MyHeader(props: { active: string }) {
-  const [value, setValue] = useState(localStorage.getItem('search'));
+export function MyHeader(props: {
+  active: string;
+  // search: string | null;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -38,24 +41,30 @@ export function MyHeader(props: { active: string }) {
   return (
     <header role="header" className={classes.header}>
       <div className={classes.logo_container}>
-        <img
-          className={classes.img}
-          src="iStar_Design_Thanksgiving_LineIcons_Live-47-512.webp"
-        ></img>
-        <h1 className={classes.logo_top}>BIGPIE</h1>
+        <img className={classes.img} src="dba0b38b4f0e60bc904d5b5bf2799215.png"></img>
+        <h1 className={classes.logo_top}>TLotR</h1>
       </div>
       <MyInput
-        onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
-          if (e.target.value) {
-            localStorage.setItem('search', e.target.value);
-            setValue(localStorage.getItem('search'));
-          }
-        }}
+        // onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
+        //   if (e.target.value) {
+        //     localStorage.setItem('search', e.target.value);
+        //     setValue(localStorage.getItem('search'));
+        //   }
+        // }}
         placeholder="Search..."
         list="SearchInput"
+        onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
+          if (e.key === 'Enter') {
+            if (e.currentTarget.value != '') {
+              localStorage.setItem('search', e.currentTarget.value);
+            }
+            props.setSearch(e.currentTarget.value);
+            console.log('ENTER ' + localStorage.getItem('search'));
+          }
+        }}
       />
       <datalist id="SearchInput">
-        <option id="tips">{value}</option>
+        <option id="tips">{localStorage.getItem('search')}</option>
       </datalist>
       <div className={classes.menu_container}>
         <h1

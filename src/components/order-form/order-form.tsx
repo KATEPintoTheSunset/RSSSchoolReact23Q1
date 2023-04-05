@@ -49,12 +49,12 @@ export function OrderForm(props: {
 
     const pie = inputPieType.current?.value;
 
-    const deliveryType = inputDeliveryType.current?.checked
+    const deliverytype = inputDeliveryType.current?.checked
       ? inputDeliveryType.current?.value
       : inputPickupType.current?.checked
       ? inputPickupType.current?.value
       : undefined;
-    const isDeliveryTypeRightValue = formDeliveryTypeValidate(deliveryType);
+    const isDeliveryTypeRightValue = formDeliveryTypeValidate(deliverytype);
 
     const bd = inputBD.current?.checked ? inputBD.current?.value : 'no';
 
@@ -65,7 +65,7 @@ export function OrderForm(props: {
       date &&
       isDateRightValue &&
       pie &&
-      deliveryType &&
+      deliverytype &&
       isDeliveryTypeRightValue
     ) {
       setErrors({
@@ -77,7 +77,7 @@ export function OrderForm(props: {
         name,
         date,
         pie,
-        deliveryType,
+        deliverytype,
         bd,
         id: localOrders.length,
         img: isIMGRightValue ? URL.createObjectURL(img[0]) : '64572.png',
