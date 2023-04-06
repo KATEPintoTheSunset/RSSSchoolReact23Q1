@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './pop-up.module.css';
 import { choseImg } from '../../utils/chose-Img';
-import { error } from 'console';
 
 export function PopUp(props: {
   gender: string;
