@@ -6,15 +6,46 @@ describe('App', () => {
   it('render App component', async () => {
     render(<App />);
     screen.debug();
-    expect(screen.getByAltText(/Apple pie/i)).toBeInTheDocument();
+    expect(await screen.findByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByText('TLotR')).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Search.../i)).toBeInTheDocument();
-    expect(screen.getAllByRole('post'));
     expect(screen.getAllByRole('header'));
+    expect(screen.getAllByRole('post'));
 
-    fireEvent.change(screen.getByPlaceholderText(/Search.../i), { target: { value: 'HELLO' } });
-    fireEvent.blur(screen.getByPlaceholderText(/Search.../i));
-    fireEvent.focus(screen.getByPlaceholderText(/Search.../i));
-    expect(await screen.findByText('HELLO')).toBeInTheDocument();
+    fireEvent.click(screen.getByPlaceholderText(/Search.../i));
+    fireEvent.change(screen.getByPlaceholderText(/Search.../i), { target: { value: 'Sador' } });
+    fireEvent.keyPress(screen.getByPlaceholderText(/Search.../i), {
+      key: 'Enter',
+      code: 13,
+      charCode: 13,
+    });
+    expect(await screen.findByText('Sador')).toBeInTheDocument();
+    expect(await screen.findByAltText('Sador')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('post'));
+    expect(await screen.findByText('Loading...')).toBeInTheDocument();
+    expect(await screen.findByText('More on wiki:')).toBeInTheDocument();
+    expect(await screen.findByText('http://lotr.wikia.com//wiki/Sador')).toBeInTheDocument();
+    fireEvent.click(await screen.findByText('x'));
+
+    fireEvent.click(screen.getByPlaceholderText(/Search.../i));
+    fireEvent.change(screen.getByPlaceholderText(/Search.../i), { target: { value: 'xyz' } });
+    fireEvent.keyPress(screen.getByPlaceholderText(/Search.../i), {
+      key: 'Enter',
+      code: 13,
+      charCode: 13,
+    });
+    expect(await screen.findAllByText('Sorry, Nothing found'));
+
+    fireEvent.click(screen.getByPlaceholderText(/Search.../i));
+    fireEvent.change(screen.getByPlaceholderText(/Search.../i), { target: { value: '' } });
+    fireEvent.keyPress(screen.getByPlaceholderText(/Search.../i), {
+      key: 'Enter',
+      code: 13,
+      charCode: 13,
+    });
+    expect(screen.queryByText('Sador')).toBeNull();
+    expect(screen.queryAllByText('Sorry, Nothing found'));
 
     expect(screen.getByText('Posts Page')).toHaveClass('active');
     fireEvent.click(screen.getByText('About Us'));
