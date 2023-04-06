@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MyHeader } from '../../components/MyHeader/my-header';
 
 export function AboutUs() {
-  const [search, setSearch] = useState('');
+  const [, setSearch] = useState('');
   return (
     <div>
       <MyHeader active={'about'} setSearch={setSearch}></MyHeader>

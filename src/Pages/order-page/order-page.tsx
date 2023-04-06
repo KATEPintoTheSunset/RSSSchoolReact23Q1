@@ -7,7 +7,7 @@ import { OrderList } from '../../components/order-list/order-list';
 import { getLocalOrders } from '../../utils/order';
 
 export function OrderPage() {
-  const [search, setSearch] = useState('');
+  const [, setSearch] = useState('');
   const [info, setNewInfo] = useState(false);
   const localOrders: IOrder[] = getLocalOrders();
   return (

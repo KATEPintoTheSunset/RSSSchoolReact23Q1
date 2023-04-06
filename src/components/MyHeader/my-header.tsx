@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 export function MyHeader(props: {
   active: string;
-  // search: string | null;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const navigate = useNavigate();
@@ -45,12 +44,6 @@ export function MyHeader(props: {
         <h1 className={classes.logo_top}>TLotR</h1>
       </div>
       <MyInput
-        // onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
-        //   if (e.target.value) {
-        //     localStorage.setItem('search', e.target.value);
-        //     setValue(localStorage.getItem('search'));
-        //   }
-        // }}
         placeholder="Search..."
         list="SearchInput"
         onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
