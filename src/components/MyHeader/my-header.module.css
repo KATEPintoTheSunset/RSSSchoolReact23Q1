@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    background-color: #ffeadc;
+    justify-content: space-evenly;
+    padding: 1vmin;
+    align-items: center;
+}
+
+.menu_container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.h1{
+    cursor: pointer;
+    margin: 0 2vmin;
+}
+
+.active{
+    text-decoration-line: underline;
+    margin: 0 2vmin;
+    cursor: auto;
+}
+
+.img{
+    width: 7vmin;
+    height: 7vmin;
+    border-radius: 1vmin;
+    margin-right: 1vmin;
+}
+
+.logo_container{
+    display: flex;
+    align-items: center;
+}
