@@ -15,7 +15,6 @@ export function PopUp(props: {
   spouse: string;
   wikiUrl: string;
   visible: boolean;
-  error: string;
   setChosenCharacter: React.Dispatch<
     React.SetStateAction<{
       birth: string;
@@ -58,13 +57,6 @@ export function PopUp(props: {
     <div className={classContainer.join(', ')} onClick={close}>
       <p onClick={close}>x</p>
       <div className={classes.div} onClick={(e) => e.stopPropagation()}>
-        {props.error != '' ? (
-          <h1>Sorry, {props.error}</h1>
-        ) : props.name === '' ? (
-          <h1>Loading...</h1>
-        ) : (
-          <h1>Full info</h1>
-        )}
         <div className={classes.container_img}>
           <img className={classes.img} src={choseImg(props.gender, props.race)}></img>
         </div>

@@ -48,17 +48,10 @@ export function MyHeader(props: {
         list="SearchInput"
         onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
           if (e.key === 'Enter') {
-            if (e.currentTarget.value != '') {
-              localStorage.setItem('search', e.currentTarget.value);
-            }
             props.setSearch(e.currentTarget.value);
-            console.log('ENTER ' + localStorage.getItem('search'));
           }
         }}
       />
-      <datalist id="SearchInput">
-        <option id="tips">{localStorage.getItem('search')}</option>
-      </datalist>
       <div className={classes.menu_container}>
         <h1
           id="posts"
