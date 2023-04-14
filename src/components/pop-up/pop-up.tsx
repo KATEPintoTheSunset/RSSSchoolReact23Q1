@@ -56,7 +56,7 @@ export function PopUp(props: {
   return (
     <div className={classContainer.join(', ')} onClick={close}>
       <p onClick={close}>x</p>
-      <div className={classes.div} onClick={(e) => e.stopPropagation()}>
+      <div role="pop-up" className={classes.div} onClick={(e) => e.stopPropagation()}>
         <div className={classes.container_img}>
           <img className={classes.img} src={choseImg(props.gender, props.race)}></img>
         </div>

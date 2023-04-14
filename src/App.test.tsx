@@ -1,16 +1,21 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
+import { Provider } from 'react-redux';
+import { tlotrStore } from './states/store';
 
 describe('App', () => {
   it('render App component', async () => {
-    render(<App />);
+    render(
+      <Provider store={tlotrStore}>
+        <App />
+      </Provider>
+    );
     screen.debug();
     expect(await screen.findByText('Loading...')).toBeInTheDocument();
     expect(screen.getByText('TLotR')).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Search.../i)).toBeInTheDocument();
     expect(screen.getAllByRole('header'));
-    expect(screen.getAllByRole('post'));
 
     fireEvent.click(screen.getByPlaceholderText(/Search.../i));
     fireEvent.change(screen.getByPlaceholderText(/Search.../i), { target: { value: 'Sador' } });
@@ -23,7 +28,12 @@ describe('App', () => {
     expect(await screen.findByAltText('Sador')).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('post'));
-    expect(await screen.findByText('Loading...')).toBeInTheDocument();
+    expect(await screen.findByText('More on wiki:')).toBeInTheDocument();
+    expect(await screen.findByText('http://lotr.wikia.com//wiki/Sador')).toBeInTheDocument();
+    fireEvent.click(await screen.findByRole('pop-up'));
+    expect(await screen.findByText('More on wiki:')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('post'));
     expect(await screen.findByText('More on wiki:')).toBeInTheDocument();
     expect(await screen.findByText('http://lotr.wikia.com//wiki/Sador')).toBeInTheDocument();
     fireEvent.click(await screen.findByText('x'));
@@ -35,7 +45,7 @@ describe('App', () => {
       code: 13,
       charCode: 13,
     });
-    expect(await screen.findAllByText('Sorry, Nothing found'));
+    expect(await screen.findAllByText('Nothing found'));
 
     fireEvent.click(screen.getByPlaceholderText(/Search.../i));
     fireEvent.change(screen.getByPlaceholderText(/Search.../i), { target: { value: '' } });
@@ -45,7 +55,6 @@ describe('App', () => {
       charCode: 13,
     });
     expect(screen.queryByText('Sador')).toBeNull();
-    expect(screen.queryAllByText('Sorry, Nothing found'));
 
     expect(screen.getByText('Posts Page')).toHaveClass('active');
     fireEvent.click(screen.getByText('About Us'));
@@ -80,5 +89,13 @@ describe('App', () => {
     fireEvent.click(screen.getByText('Order', { selector: 'input' }));
     expect(screen.queryByText('Customer name:')).toBeInTheDocument();
     expect(screen.queryByText('Order for a date:')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText('Posts Page'));
+    fireEvent.click(screen.getByText('Orders'));
+    expect(screen.queryByText('Customer name:')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText('About Us'));
+    fireEvent.click(screen.getByText('Orders'));
+    expect(screen.queryByText('Customer name:')).toBeInTheDocument();
   });
 });
