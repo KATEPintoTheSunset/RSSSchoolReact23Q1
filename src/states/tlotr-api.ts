@@ -26,7 +26,7 @@ export const charactersApi = createApi({
         url: 'character',
         params: {
           limit: 20,
-          name: `/${search}/i`,
+          name: `/^${search}/i`,
         },
       }),
     }),

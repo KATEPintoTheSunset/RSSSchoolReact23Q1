@@ -1,12 +1,16 @@
 import React from 'react';
 import { OrderCard } from '../../components/order-card/order-card';
 import classes from './order-list.module.css';
-import { IOrder } from 'interfaces/order';
+// import { IOrder } from 'interfaces/order';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../states/store';
 
-export function OrderList(props: { localOrders: IOrder[] }) {
+export function OrderList() {
+  const orders = useSelector((state: RootState) => state.pie.orders);
+
   return (
     <div className={classes.posts_container} id="list">
-      {props.localOrders.map((order) => (
+      {orders.map((order) => (
         <OrderCard
           name={order.name}
           date={order.date}

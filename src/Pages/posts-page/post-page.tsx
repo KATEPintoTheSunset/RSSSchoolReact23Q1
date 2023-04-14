@@ -4,7 +4,7 @@ import { MyHeader } from '../../components/MyHeader/my-header';
 import classes from './post-page.module.css';
 import { IData } from '../../interfaces/data';
 import { PopUp } from '../../components/pop-up/pop-up';
-import { useGetCharactersQuery } from '../../redux/tlotr-api';
+import { useGetCharactersQuery } from '../../states/tlotr-api';
 
 export function PostsPage() {
   const [search, setSearch] = useState('');
@@ -25,11 +25,9 @@ export function PostsPage() {
 
   let someError = '';
 
-  const { data = { docs: [] }, error } = useGetCharactersQuery(search);
+  const { data = { docs: [] }, error, isLoading } = useGetCharactersQuery(search);
   if (error) {
     someError = 'error' in error ? error.error : 'some error';
-  } else if (data.docs.length === 0) {
-    someError = 'Nothing found';
   }
 
   function getIndex(id: string) {
@@ -72,7 +70,11 @@ export function PostsPage() {
       <div className={classes.posts_container}>
         {data.docs.length === 0 ? (
           someError === '' ? (
-            <h1>Loading...</h1>
+            isLoading ? (
+              <h1>Loading...</h1>
+            ) : (
+              <h1>Nothing found</h1>
+            )
           ) : (
             <h1>Sorry, {someError}</h1>
           )

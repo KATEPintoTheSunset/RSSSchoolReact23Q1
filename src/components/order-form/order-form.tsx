@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import classes from './order-form.module.css';
 import pieList from '../../pieList.json';
+import { useDispatch } from 'react-redux';
 import { IOrder } from 'interfaces/order';
-import { getLocalOrders, writeOrders } from '../../utils/order';
+import { useSelector } from 'react-redux';
 import formNameValidate from '../../utils/validation/form-fields/name';
 import formIMGValidate from '../../utils/validation/form-fields/img';
 import formDateValidate from '../../utils/validation/form-fields/date';
 import formDeliveryTypeValidate from '../../utils/validation/form-fields/delivery-type';
+import { addOrder } from '../../states/pie-slice';
+// import { IState } from '../../interfaces/state';
+import type { RootState } from '../../states/store';
 
-export function OrderForm(props: {
-  newInfo: React.Dispatch<React.SetStateAction<boolean>>;
-  info: boolean;
-}) {
-  const [info, setNewInfo] = useState(false);
+export function OrderForm() {
   const [errors, setErrors] = useState({
     isNameCorrect: true,
     isDateCorrect: true,
     isDeliveryTypeCorrect: true,
   });
+  const dispatch = useDispatch();
+  const orders = useSelector((state: RootState) => state.pie.orders);
 
   const inputName = React.createRef<HTMLInputElement>();
   const inputIMG = React.createRef<HTMLInputElement>();
@@ -36,8 +38,6 @@ export function OrderForm(props: {
   }-${today.getDate()}`;
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    const localOrders: IOrder[] = getLocalOrders();
-
     const name = inputName.current?.value;
     const isNameRightValue = formNameValidate(name);
 
@@ -79,15 +79,13 @@ export function OrderForm(props: {
         pie,
         deliverytype,
         bd,
-        id: localOrders.length,
+        id: orders.length,
         img: isIMGRightValue ? URL.createObjectURL(img[0]) : '64572.png',
       };
 
-      localOrders.push(totalObject);
+      dispatch(addOrder([...orders, totalObject]));
 
-      writeOrders(localOrders);
       event.currentTarget.reset();
-      props.newInfo(!props.info);
     } else {
       const errorsState = {
         isNameCorrect: isNameRightValue,
@@ -95,7 +93,6 @@ export function OrderForm(props: {
         isDeliveryTypeCorrect: isDeliveryTypeRightValue,
       };
       setErrors(errorsState);
-      setNewInfo(!info);
     }
     event.preventDefault();
   }
