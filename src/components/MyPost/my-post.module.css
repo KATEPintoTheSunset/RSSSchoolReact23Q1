@@ -1,0 +1,17 @@
+.img{
+    width: 35vmin;
+    height: 30vmin;
+    border-radius: 1vmin;
+}
+
+.div{
+    width: 35vmin;
+    background-color: #ffeadc;
+    margin: 0 1vmin 1vmin 1vmin;
+    padding: 1vmin;
+    border-radius: 1vmin;
+}
+
+.h3{
+    margin-top: 2vmin;
+}

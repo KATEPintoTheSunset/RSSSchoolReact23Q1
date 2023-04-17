@@ -1,0 +1,50 @@
+.img{
+    width: 45vmin;
+    height: 40vmin;
+    border-radius: 1vmin;
+}
+
+.div{
+    background-color: #ffeadc;
+    padding: 2vmin;
+    border-radius: 1vmin;
+}
+
+.container_img{
+    display: flex;
+    justify-content: center
+}
+
+.container{
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background-color: rgba(13, 13, 13, 0.7);
+}
+
+p {
+    font-size: 3vmin;
+    color: #ffeadc;
+    cursor: pointer;
+}
+
+a {
+    font-size: 1.5em;
+}
+
+.closed {
+    display: none;
+}
+
+i{
+    color: #b86b38;
+}
